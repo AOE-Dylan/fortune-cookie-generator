@@ -8,11 +8,18 @@ function generateFortuneCookie() {
     action : ["will deliver an important message", " will need your help", "will want to give you special stuff"]
   };
   for (var i = 0; i < 3; i++) {
-  document.getElementById('read').innerHTML =   
-    (fortunes.begin[2] + fortunes.people[1] + " " + fortunes.action[0] + " !");
+  var printFortune = document.getElementById('read').innerHTML =   
+    (fortunes.begin[i] + fortunes.people[i] + " " + fortunes.action[i] + " !");
+    document.getElementById('read').style.display = "block";
+  previousFortunes(printFortune)
   }
 }
 
-function previousFortunes(argument) {
-  // body...
+
+
+function previousFortunes(a) {
+    var previousFortunes = document.createElement("previous-fortunes");
+    var block = document.createTextNode(a);
+    previousFortunes.appendChild(block);
+    document.getElementById("fortune-cookie-text").appendChild(previousFortunes);
 }
